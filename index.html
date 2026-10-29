@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Narasimham Vemuganti</title>
+  <meta name="description" content="Financial research editor turned quant systems engineer. Former Goldman Sachs, UBS, JP Morgan. Building EdgeQuant — 90+ algorithmic trading consoles on NSE/BSE/MCX.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap">
+  <style>
+    /* Layout: left-rail header + scrolling main; graph-paper background */
+    :root {
+      --bg:        #F2EBD9;
+      --bg-paper:  #EDE4CC;
+      --surface:   #F8F3E8;
+      --border:    #C9B898;
+      --rail:      #6B3F1A;
+      --fg:        #2E1A08;
+      --fg-muted:  #7A5C3C;
+      --accent:    #8B4E1A;
+      --accent-2:  #B07640;
+      --tag-bg:    #E5D5B5;
+      --tag-fg:    #5C3510;
+      --grid:      rgba(139,110,70,0.12);
+
+      --display: 'Spectral', Georgia, serif;
+      --body:    'Inter', system-ui, sans-serif;
+      --mono:    'JetBrains Mono', monospace;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:        #180F06;
+        --bg-paper:  #1D1208;
+        --surface:   #231608;
+        --border:    #4A3218;
+        --rail:      #C49558;
+        --fg:        #EEE0C4;
+        --fg-muted:  #9A7A50;
+        --accent:    #D4A060;
+        --accent-2:  #A07038;
+        --tag-bg:    #2E1E0A;
+        --tag-fg:    #C49558;
+        --grid:      rgba(180,140,80,0.1);
+        color-scheme: dark;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--body);
+      font-size: 15px;
+      line-height: 1.75;
+      background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 56px 24px 100px;
+    }
+
+    /* HEADER */
+    .header {
+      display: grid;
+      grid-template-columns: 5px 1fr;
+      gap: 0 28px;
+      margin-bottom: 60px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .rail-bar {
+      background: var(--rail);
+      border-radius: 3px;
+    }
+
+    .monogram {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      border-radius: 4px;
+      background: var(--rail);
+      color: var(--bg-paper);
+      font-family: var(--display);
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -1px;
+      margin-bottom: 18px;
+    }
+
+    h1.name {
+      font-family: var(--display);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 300;
+      color: var(--fg);
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+    }
+
+    h1.name strong { font-weight: 700; color: var(--accent); }
+
+    .handle {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--fg-muted);
+      margin-top: 6px;
+    }
+
+    .tagline {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--fg-muted);
+      margin-top: 14px;
+      max-width: 540px;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 20px;
+      margin-top: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.83rem;
+      color: var(--fg-muted);
+      font-family: var(--mono);
+    }
+
+    /* SECTIONS */
+    .section { margin-bottom: 56px; }
+
+    .sec-header {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .sec-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .sec-rule { flex: 1; height: 1px; background: var(--border); }
+
+    h2.sec-title {
+      font-family: var(--display);
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--fg);
+      margin-bottom: 18px;
+      line-height: 1.3;
+    }
+
+    .body-text {
+      color: var(--fg);
+      max-width: 700px;
+      line-height: 1.85;
+      font-size: 0.95rem;
+    }
+
+    /* BUILDING LIST */
+    .building-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .building-item {
+      background: var(--surface);
+      padding: 18px 22px;
+      display: grid;
+      grid-template-columns: 8px 1fr;
+      gap: 0 18px;
+      align-items: start;
+    }
+
+    .building-item + .building-item { border-top: 1px solid var(--border); }
+
+    .building-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 7px;
+    }
+
+    .building-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--fg);
+      margin-bottom: 3px;
+    }
+
+    .building-desc {
+      font-size: 0.84rem;
+      color: var(--fg-muted);
+      line-height: 1.6;
+    }
+
+    /* STACK */
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 20px 28px;
+    }
+
+    .stack-group-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--fg-muted);
+      margin-bottom: 9px;
+    }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+
+    .tag {
+      background: var(--tag-bg);
+      color: var(--tag-fg);
+      font-family: var(--mono);
+      font-size: 0.73rem;
+      padding: 2px 9px;
+      border-radius: 2px;
+      border: 1px solid var(--border);
+      line-height: 1.8;
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--border);
+      border-radius: 4px;
+      padding: 18px 16px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: border-top-color 0.18s;
+    }
+
+    .project-card:hover { border-top-color: var(--accent); }
+
+    .project-name { font-weight: 600; font-size: 0.88rem; color: var(--fg); line-height: 1.3; }
+    .project-desc { font-size: 0.81rem; color: var(--fg-muted); line-height: 1.58; flex: 1; }
+
+    .project-tags { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 6px; }
+
+    .pt {
+      font-family: var(--mono);
+      font-size: 0.67rem;
+      padding: 1px 6px;
+      border-radius: 2px;
+      background: var(--tag-bg);
+      color: var(--tag-fg);
+      border: 1px solid var(--border);
+    }
+
+    /* STATS */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .stat-tile {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: var(--display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stat-label { font-size: 0.78rem; color: var(--fg-muted); margin-top: 5px; line-height: 1.35; }
+
+    /* EDUCATION LIST */
+    .learn-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+
+    .learn-item {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 0 10px;
+      align-items: start;
+      font-size: 0.9rem;
+    }
+
+    .learn-arrow { font-family: var(--mono); color: var(--accent-2); font-size: 0.8rem; line-height: 1.75; }
+
+    /* FOOTER */
+    .footer {
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-note { font-family: var(--mono); font-size: 0.72rem; color: var(--fg-muted); letter-spacing: 0.04em; }
+
+    @media (max-width: 640px) {
+      .projects-grid { grid-template-columns: 1fr 1fr; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .stack-grid { grid-template-columns: 1fr 1fr; }
+      h1.name { font-size: 1.9rem; }
+      .header { grid-template-columns: 4px 1fr; gap: 0 16px; }
+    }
+
+    @media (max-width: 420px) {
+      .projects-grid { grid-template-columns: 1fr; }
+      .stack-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .project-card { transition: none; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <div class="rail-bar"></div>
+    <div>
+      <div class="monogram">NV</div>
+      <h1 class="name"><strong>Narasimham</strong> Vemuganti</h1>
+      <div class="handle">@nvemuganti-sudo &nbsp;·&nbsp; github.com/nvemuganti-sudo</div>
+      <p class="tagline">Former financial editor at Goldman Sachs, UBS &amp; JP Morgan.<br>Now building quant trading systems and studying applied mathematics.</p>
+      <div class="contact-row">
+        <div class="contact-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          narasimham.vemuganti@gmail.com
+        </div>
+        <div class="contact-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          Visakhapatnam, India
+        </div>
+        <div class="contact-item">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12 19.79 19.79 0 0 1 1.08 3.33 2 2 0 0 1 3.05 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92Z"/></svg>
+          +91 8095 111 977
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="sec-header"><span class="sec-eyebrow">About</span><div class="sec-rule"></div></div>
+    <h2 class="sec-title">25 years in markets. Now I build the systems.</h2>
+    <p class="body-text">
+      I spent two and a half decades as a financial editor and research manager at Goldman Sachs, UBS, JP Morgan, Reuters, and CRISIL (S&amp;P). I edited equity research, ran a 30-analyst investment research department, and covered live FX markets in real-time for UBS's award-winning client portal across London, Zurich, Singapore, and New York.
+    </p>
+    <p class="body-text" style="margin-top:14px">
+      Since 2025 I've been applying that domain depth as an engineer — building <strong>EdgeQuant</strong>, a production suite of 90+ algorithmic trading consoles: Market Profile TPO analysis, options execution, ML signal classifiers, and a 7-agent agentic trading desk where Claude reasons about strategy and a human presses SEND. Concurrently finishing a Masters in Applied Mathematics at Andhra University, specialising in Optimisation and Riemannian Geometry.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="sec-header"><span class="sec-eyebrow">Now building</span><div class="sec-rule"></div></div>
+    <div class="building-list">
+      <div class="building-item">
+        <div class="building-dot"></div>
+        <div>
+          <div class="building-name">EdgeQuant — Algorithmic Trading Estate</div>
+          <div class="building-desc">90+ Python/TypeScript web consoles: Market Profile TPO, IB/VA/Fib levels, ML classifiers (SVM, RL), compressed sensing on auction data, a 7-agent agentic desk (EQ-AMP), and options execution across Nifty, Sensex, Bank Nifty, and MCX.</div>
+        </div>
+      </div>
+      <div class="building-item">
+        <div class="building-dot"></div>
+        <div>
+          <div class="building-name">Nanotokens — Token Economics Tracker</div>
+          <div class="building-desc">Next.js 15 dashboard tracking LLM API spend across providers: cache-hit rates, cost forecasting, platform comparison, and multi-account management.</div>
+        </div>
+      </div>
+      <div class="building-item">
+        <div class="building-dot"></div>
+        <div>
+          <div class="building-name">Grocery Aggregator App</div>
+          <div class="building-desc">Android Accessibility-service app that fills Blinkit and Swiggy Instamart carts in parallel, compares totals, and places the cheaper order behind a fingerprint confirm.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sec-header"><span class="sec-eyebrow">Tech stack</span><div class="sec-rule"></div></div>
+    <div class="stack-grid">
+      <div>
+        <div class="stack-group-label">Languages</div>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">TypeScript</span><span class="tag">Go</span><span class="tag">Rust</span><span class="tag">OCaml</span><span class="tag">C++</span><span class="tag">Java</span>
+        </div>
+      </div>
+      <div>
+        <div class="stack-group-label">Web &amp; Runtime</div>
+        <div class="tags">
+          <span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Node.js</span><span class="tag">Flask</span><span class="tag">FastAPI</span><span class="tag">WebSocket</span>
+        </div>
+      </div>
+      <div>
+        <div class="stack-group-label">Finance &amp; Quant</div>
+        <div class="tags">
+          <span class="tag">Market Profile</span><span class="tag">Options Pricing</span><span class="tag">SABR / Heston</span><span class="tag">TPO / Value Area</span><span class="tag">SVM</span>
+        </div>
+      </div>
+      <div>
+        <div class="stack-group-label">Infrastructure</div>
+        <div class="tags">
+          <span class="tag">SQLite</span><span class="tag">Kite API</span><span class="tag">Dhan API</span><span class="tag">MCP</span><span class="tag">Claude API</span><span class="tag">Telegram Bot</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sec-header"><span class="sec-eyebrow">Featured projects</span><div class="sec-rule"></div></div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-name">EdgeQuant AMP</div>
+        <div class="project-desc">7-agent agentic trading desk: Conductor, Risk Manager, Execution, Attribution, and Learning agents. Claude analyses; human presses SEND.</div>
+        <div class="project-tags"><span class="pt">Python</span><span class="pt">Claude API</span><span class="pt">MCP</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-name">EQ Market Profile Studio</div>
+        <div class="project-desc">TypeScript Turborepo desktop with 11 MCP tools. Live TPO profiles, Value Area, IB ladders across Kite, Dhan, and Fyers.</div>
+        <div class="project-tags"><span class="pt">TypeScript</span><span class="pt">Electron</span><span class="pt">MCP</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-name">EQ ML Algo 1.0</div>
+        <div class="project-desc">SVM champion on Market Profile features. Profile proposes; SVM decides; MEA executes. Model store shared across both trading accounts.</div>
+        <div class="project-tags"><span class="pt">Python</span><span class="pt">scikit-learn</span><span class="pt">Flask</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-name">EQ Quantum Qubits</div>
+        <div class="project-desc">TPO histogram as |ψ|². Derives price levels from first principles using quantum well formalism — zero free parameters.</div>
+        <div class="project-tags"><span class="pt">Python</span><span class="pt">Quantum Mech</span><span class="pt">NSE</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-name">Nanotokens</div>
+        <div class="project-desc">LLM API spend tracker with cache-hit rates, cost forecasting, and platform comparisons. Built with Next.js 15 and Supabase.</div>
+        <div class="project-tags"><span class="pt">Next.js</span><span class="pt">TypeScript</span><span class="pt">Supabase</span></div>
+      </div>
+      <div class="project-card">
+        <div class="project-name">Grocery Aggregator</div>
+        <div class="project-desc">Android accessibility app that fills Blinkit and Instamart carts simultaneously and orders the cheaper basket behind fingerprint auth.</div>
+        <div class="project-tags"><span class="pt">Java</span><span class="pt">Android</span><span class="pt">A11y API</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sec-header"><span class="sec-eyebrow">Career</span><div class="sec-rule"></div></div>
+    <h2 class="sec-title">Financial research &amp; editorial — 2000 to 2025</h2>
+    <div class="building-list">
+      <div class="building-item">
+        <div class="building-dot"></div>
+        <div>
+          <div class="building-name">CRISIL (an S&amp;P company) — Senior Editor &nbsp;<span style="font-weight:400;color:var(--fg-muted)">2016–2025</span></div>
+          <div class="building-desc">Edited research across Ratings, GR&amp;A, Market Intelligence, and Global Analytics Centre. Compliance standards, analyst workflow, first-to-market delivery.</div>
+        </div>
+      </div>
+      <div class="building-item">
+        <div class="building-dot"></div>
+        <div>
+          <div class="building-name">Copal Amba (Moody's) — Senior AVP, Editorial &nbsp;<span style="font-weight:400;color:var(--fg-muted)">2012–2015</span></div>
+          <div class="building-desc">Edited Asia-Pacific ex-Japan equity research for a UK investment bank; managed publication schedules, analyst marketing presentations, and morning-meeting notes for HK/London/New York.</div>
+        </div>
+      </div>
+      <div class="building-item">
+        <div class="building-dot"></div>
+        <div>
+          <div class="building-name">JP Morgan Chase — Associate Editor, Global Research Centre &nbsp;<span style="font-weight:400;color:var(--fg-muted)">2010–2012</span></div>
+          <div class="building-desc">Edited Asia-Pacific equity research; wrote daily top-story summaries; managed end-to-end publishing workflow; bridged analysts with supervisory analysts on compliance.</div>
+        </div>
+      </div>
+      <div class="building-item">
+        <div class="building-dot"></div>
+        <div>
+          <div class="building-name">Cognizant — Deputy General Manager, Investment Research &nbsp;<span style="font-weight:400;color:var(--fg-muted)">Jan–Jun 2010</span></div>
+          <div class="building-desc">Managed 30 analysts covering credit, currencies, and commodities. Ran department P&amp;L; owned recruitment and client engagement with UBS onshore analysts.</div>
+        </div>
+      </div>
+      <div class="building-item">
+        <div class="building-dot"></div>
+        <div>
+          <div class="building-name">UBS — Associate Director, FX Strategy Group &nbsp;<span style="font-weight:400;color:var(--fg-muted)">2006–2009</span></div>
+          <div class="building-desc">Sole owner of UBS's award-winning FX Strategy website. Covered live global currency markets via FXBuzz during Asia-close/Europe-open; stakeholders in Singapore, Zurich, and New York across FX spot, options, OIS, IRS, EM and commodities.</div>
+        </div>
+      </div>
+      <div class="building-item">
+        <div class="building-dot"></div>
+        <div>
+          <div class="building-name">Goldman Sachs — Senior Analyst, Global Investment Research &nbsp;<span style="font-weight:400;color:var(--fg-muted)">2006</span></div>
+          <div class="building-desc">Edited Asia-Pacific ex-Japan equity research; managed compliance clearance and supervisory-analyst workflow for equity product publishing.</div>
+        </div>
+      </div>
+      <div class="building-item">
+        <div class="building-dot"></div>
+        <div>
+          <div class="building-name">Reuters — Sub Editor / Finance Group Head &nbsp;<span style="font-weight:400;color:var(--fg-muted)">2005–2006</span></div>
+          <div class="building-desc">Covered US mid-caps; headed Finance Group; wrote brokerage alert summaries for US investors. Near real-time turnaround.</div>
+        </div>
+      </div>
+      <div class="building-item">
+        <div class="building-dot"></div>
+        <div>
+          <div class="building-name">Business Standard — Sub Editor &nbsp;<span style="font-weight:400;color:var(--fg-muted)">2000–2005</span></div>
+          <div class="building-desc">Edited and rewrote market and business stories; page-making in QuarkXpress. Trained by Financial Times journalists (FT held a stake in the paper).</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sec-header"><span class="sec-eyebrow">Education</span><div class="sec-rule"></div></div>
+    <ul class="learn-list">
+      <li class="learn-item">
+        <span class="learn-arrow">→</span>
+        <span><strong>Masters in Applied Mathematics</strong> (graduating 2026) — Andhra University, Visakhapatnam. Specialising in Optimisation and Riemannian Geometry.</span>
+      </li>
+      <li class="learn-item">
+        <span class="learn-arrow">→</span>
+        <span><strong>Certificate in Advanced Financial Risk Management</strong> (2013–14) — IIM Bangalore.</span>
+      </li>
+      <li class="learn-item">
+        <span class="learn-arrow">→</span>
+        <span><strong>Certificate in Statistical Modelling for Business using R</strong> (2014) — IIM Bangalore.</span>
+      </li>
+      <li class="learn-item">
+        <span class="learn-arrow">→</span>
+        <span><strong>PG Diploma, Journalism &amp; Mass Communications</strong> (1999–2000) — KJ Somaiya Institute, Mumbai.</span>
+      </li>
+      <li class="learn-item">
+        <span class="learn-arrow">→</span>
+        <span><strong>BSc Mathematics, Physics &amp; Chemistry</strong> (1994–1997) — Sri Venkateswara University, Tirupathi.</span>
+      </li>
+      <li class="learn-item">
+        <span class="learn-arrow">→</span>
+        <span><strong>Currently auditing:</strong> IISc Agentic AI course · Stanford CS329A (Self-Improving AI Agents) · CSIR NET mathematics.</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="sec-header"><span class="sec-eyebrow">Scale</span><div class="sec-rule"></div></div>
+    <div class="stats-row">
+      <div class="stat-tile">
+        <div class="stat-number">25+</div>
+        <div class="stat-label">Years in financial markets</div>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-number">90+</div>
+        <div class="stat-label">EdgeQuant consoles</div>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-number">7</div>
+        <div class="stat-label">Agents in EQ-AMP</div>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Compiled languages</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span class="footer-note">narasimham.vemuganti@gmail.com</span>
+    <span class="footer-note">github.com/nvemuganti-sudo</span>
+    <span class="footer-note">Visakhapatnam · India · 2026</span>
+  </footer>
+
+</div>
+</body>
+</html>
