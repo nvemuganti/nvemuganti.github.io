@@ -366,7 +366,7 @@
     <div>
       <div class="monogram">NV</div>
       <h1 class="name"><strong>Narasimham</strong> Vemuganti</h1>
-      <div class="handle">@nvemuganti-sudo &nbsp;·&nbsp; github.com/nvemuganti-sudo</div>
+      <div class="handle">@nvemuganti &nbsp;·&nbsp; nvemuganti.github.io</div>
       <p class="tagline">Former financial editor at Goldman Sachs, UBS &amp; JP Morgan.<br>Now building quant trading systems and studying applied mathematics.</p>
       <div class="contact-row">
         <div class="contact-item">
@@ -392,36 +392,263 @@
       I spent two and a half decades as a financial editor and research manager at Goldman Sachs, UBS, JP Morgan, Reuters, and CRISIL (S&amp;P). I edited equity research, ran a 30-analyst investment research department, and covered live FX markets in real-time for UBS's award-winning client portal across London, Zurich, Singapore, and New York.
     </p>
     <p class="body-text" style="margin-top:14px">
-      Since 2025 I've been applying that domain depth as an engineer — building <strong>EdgeQuant</strong>, a production suite of 90+ algorithmic trading consoles: Market Profile TPO analysis, options execution, ML signal classifiers, and a 7-agent agentic trading desk where Claude reasons about strategy and a human presses SEND. Concurrently finishing a Masters in Applied Mathematics at Andhra University, specialising in Optimisation and Riemannian Geometry.
+      Since 2025 I've been applying that domain depth as an engineer and researcher across three ventures: <strong>EdgeQuant Trading</strong> (algorithmic trading infrastructure for Indian markets), <strong>EigenCube Systems</strong> (research-reading and knowledge tools), and <strong>Manifold Mathematics</strong> (applied mathematics research bridging pure theory and quantitative finance). Concurrently finishing a Masters in Applied Mathematics at Andhra University, specialising in Optimisation and Riemannian Geometry.
     </p>
   </section>
 
   <section class="section">
-    <div class="sec-header"><span class="sec-eyebrow">Now building</span><div class="sec-rule"></div></div>
-    <div class="building-list">
-      <div class="building-item">
-        <div class="building-dot"></div>
-        <div>
-          <div class="building-name">EdgeQuant — Algorithmic Trading Estate</div>
-          <div class="building-desc">90+ Python/TypeScript web consoles: Market Profile TPO, IB/VA/Fib levels, ML classifiers (SVM, RL), compressed sensing on auction data, a 7-agent agentic desk (EQ-AMP), and options execution across Nifty, Sensex, Bank Nifty, and MCX.</div>
-        </div>
+    <div class="sec-header"><span class="sec-eyebrow">Ventures</span><div class="sec-rule"></div></div>
+
+    <!-- TAB BAR -->
+    <div class="tab-bar" role="tablist">
+      <button class="tab-btn active" role="tab" data-tab="eq" aria-selected="true">EdgeQuant Trading</button>
+      <button class="tab-btn" role="tab" data-tab="ec" aria-selected="false">EigenCube Systems</button>
+      <button class="tab-btn" role="tab" data-tab="mm" aria-selected="false">Manifold Mathematics</button>
+    </div>
+
+    <!-- TAB: EdgeQuant Trading -->
+    <div class="tab-panel active" id="tab-eq" role="tabpanel">
+      <div class="tab-intro">
+        <div class="tab-intro-label">Algorithmic Trading Infrastructure</div>
+        <p>Production trading tools for Indian equities and derivatives (NSE/BSE/MCX). Covers the full cycle: real-time auction analysis, signal generation, risk management, options execution, and post-trade attribution — with an agentic AI layer and mandatory human approval before every order.</p>
       </div>
-      <div class="building-item">
-        <div class="building-dot"></div>
-        <div>
-          <div class="building-name">Nanotokens — Token Economics Tracker</div>
-          <div class="building-desc">Next.js 15 dashboard tracking LLM API spend across providers: cache-hit rates, cost forecasting, platform comparison, and multi-account management.</div>
+      <div class="card-grid">
+        <div class="v-card">
+          <div class="v-card-num">01</div>
+          <div class="v-card-name">Agentic Trading Desk</div>
+          <div class="v-card-desc">Multi-agent system with specialist agents for risk, execution, attribution, and strategy learning. Human approval gate before every order is placed.</div>
+          <div class="v-tags"><span class="pt">Python</span><span class="pt">Agentic AI</span><span class="pt">LLM APIs</span></div>
         </div>
-      </div>
-      <div class="building-item">
-        <div class="building-dot"></div>
-        <div>
-          <div class="building-name">Grocery Aggregator App</div>
-          <div class="building-desc">Android Accessibility-service app that fills Blinkit and Swiggy Instamart carts in parallel, compares totals, and places the cheaper order behind a fingerprint confirm.</div>
+        <div class="v-card">
+          <div class="v-card-num">02</div>
+          <div class="v-card-name">Market Profile Studio</div>
+          <div class="v-card-desc">Desktop application for real-time auction analysis: TPO profiles, Value Area, Initial Balance, and Fibonacci levels across live market data feeds.</div>
+          <div class="v-tags"><span class="pt">TypeScript</span><span class="pt">Electron</span><span class="pt">WebSocket</span></div>
+        </div>
+        <div class="v-card">
+          <div class="v-card-num">03</div>
+          <div class="v-card-name">ML Signal Engine</div>
+          <div class="v-card-desc">Machine learning classifier trained on auction-structure features. Directional signals gated behind a rules-based risk system before any order is staged.</div>
+          <div class="v-tags"><span class="pt">Python</span><span class="pt">scikit-learn</span><span class="pt">Flask</span></div>
+        </div>
+        <div class="v-card">
+          <div class="v-card-num">04</div>
+          <div class="v-card-name">Options Execution Engine</div>
+          <div class="v-card-desc">Manual and semi-automated options desk for index derivatives. Integrates real-time pricing, position management, and P&amp;L attribution across multiple strategies.</div>
+          <div class="v-tags"><span class="pt">Python</span><span class="pt">Options</span><span class="pt">React</span></div>
         </div>
       </div>
     </div>
+
+    <!-- TAB: EigenCube Systems -->
+    <div class="tab-panel" id="tab-ec" role="tabpanel" hidden>
+      <div class="tab-intro">
+        <div class="tab-intro-label">Research &amp; Knowledge Tools</div>
+        <p>Software tools for reading, annotating, and connecting advanced research papers in mathematics and quantitative finance. Makes dense academic material navigable without losing rigour.</p>
+      </div>
+      <div class="card-grid">
+        <div class="v-card">
+          <div class="v-card-num">01</div>
+          <div class="v-card-name">EigenCube Reader</div>
+          <div class="v-card-desc">Desktop reader for research papers with annotation, margin notes, cross-paper concept linking, and AI-assisted explanation of theorems and proofs.</div>
+          <div class="v-tags"><span class="pt">TypeScript</span><span class="pt">Electron</span><span class="pt">LLM APIs</span></div>
+        </div>
+        <div class="v-card">
+          <div class="v-card-num">02</div>
+          <div class="v-card-name">Nanotokens</div>
+          <div class="v-card-desc">Token economics dashboard for tracking LLM API spend across providers. Cache-hit rates, cost forecasting, platform comparison, and multi-account management.</div>
+          <div class="v-tags"><span class="pt">Next.js</span><span class="pt">TypeScript</span><span class="pt">Supabase</span></div>
+        </div>
+        <div class="v-card">
+          <div class="v-card-num">03</div>
+          <div class="v-card-name">Grocery Aggregator</div>
+          <div class="v-card-desc">Android accessibility app that fills Blinkit and Instamart carts simultaneously, compares totals, and places the cheaper order behind a fingerprint confirm.</div>
+          <div class="v-tags"><span class="pt">Java</span><span class="pt">Android</span><span class="pt">A11y API</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: Manifold Mathematics -->
+    <div class="tab-panel" id="tab-mm" role="tabpanel" hidden>
+      <div class="tab-intro">
+        <div class="tab-intro-label">Applied Mathematics Research &amp; Teaching</div>
+        <p>Bridges the gap between pure university mathematics and its applications in quantitative finance and machine learning. Draws on a Masters in Applied Mathematics (Optimisation and Riemannian Geometry) and prior undergraduate teaching experience.</p>
+      </div>
+      <div class="card-grid">
+        <div class="v-card">
+          <div class="v-card-num">01</div>
+          <div class="v-card-name">Quantum Profile Model</div>
+          <div class="v-card-desc">Applies quantum well formalism to auction price distributions. Derives support and resistance levels from first principles — no fitted parameters.</div>
+          <div class="v-tags"><span class="pt">Python</span><span class="pt">Quantum Mech</span><span class="pt">NSE data</span></div>
+        </div>
+        <div class="v-card">
+          <div class="v-card-num">02</div>
+          <div class="v-card-name">PINN Investing Model</div>
+          <div class="v-card-desc">Physics-Informed Neural Network that solves optimal entry/exit in value coordinates across NSE/BSE indices. Embeds the Black-Scholes PDE as a training constraint.</div>
+          <div class="v-tags"><span class="pt">Python</span><span class="pt">PyTorch</span><span class="pt">PINN</span></div>
+        </div>
+        <div class="v-card">
+          <div class="v-card-num">03</div>
+          <div class="v-card-name">Riemannian Geometry in Finance</div>
+          <div class="v-card-desc">Research applying differential geometry (geodesics, curvature tensors) to portfolio optimisation and volatility surface modelling. MSc thesis work.</div>
+          <div class="v-tags"><span class="pt">Mathematics</span><span class="pt">Optimisation</span><span class="pt">Vol Models</span></div>
+        </div>
+        <div class="v-card">
+          <div class="v-card-num">04</div>
+          <div class="v-card-name">AlphaView Teaching</div>
+          <div class="v-card-desc">One-on-one and group mathematics tutoring for pre-college and undergraduate students. Emphasis on formal proof, rigour, and making abstract concepts concrete.</div>
+          <div class="v-tags"><span class="pt">Pedagogy</span><span class="pt">Real Analysis</span><span class="pt">Linear Algebra</span></div>
+        </div>
+      </div>
+    </div>
+
   </section>
+
+  <style>
+    /* TAB BAR */
+    .tab-bar {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 28px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .tab-bar::-webkit-scrollbar { display: none; }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      padding: 10px 22px;
+      font-family: var(--body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--fg-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.15s, border-color 0.15s;
+      letter-spacing: 0.01em;
+    }
+
+    .tab-btn:hover { color: var(--fg); }
+
+    .tab-btn.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* TAB PANELS */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .tab-intro {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 4px;
+      padding: 18px 22px;
+      margin-bottom: 20px;
+    }
+
+    .tab-intro-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .tab-intro p {
+      font-size: 0.88rem;
+      color: var(--fg-muted);
+      line-height: 1.7;
+      max-width: 680px;
+    }
+
+    /* VENTURE CARDS */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .v-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: border-color 0.15s;
+    }
+
+    .v-card:hover { border-color: var(--accent-2); }
+
+    .v-card-num {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--accent-2);
+      letter-spacing: 0.05em;
+    }
+
+    .v-card-name {
+      font-family: var(--display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--fg);
+      line-height: 1.25;
+    }
+
+    .v-card-desc {
+      font-size: 0.83rem;
+      color: var(--fg-muted);
+      line-height: 1.62;
+      flex: 1;
+    }
+
+    .v-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+
+    @media (max-width: 520px) {
+      .card-grid { grid-template-columns: 1fr; }
+      .tab-btn { padding: 10px 14px; font-size: 0.8rem; }
+    }
+  </style>
+
+  <script>
+    (function() {
+      var btns = document.querySelectorAll('.tab-btn');
+      var panels = document.querySelectorAll('.tab-panel');
+
+      function activate(id) {
+        btns.forEach(function(b) {
+          var on = b.dataset.tab === id;
+          b.classList.toggle('active', on);
+          b.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        panels.forEach(function(p) {
+          var on = p.id === 'tab-' + id;
+          p.classList.toggle('active', on);
+          p.hidden = !on;
+        });
+        try { localStorage.setItem('nv-tab', id); } catch(e) {}
+      }
+
+      btns.forEach(function(btn) {
+        btn.addEventListener('click', function() { activate(btn.dataset.tab); });
+      });
+
+      // restore last tab
+      try {
+        var saved = localStorage.getItem('nv-tab');
+        if (saved) activate(saved);
+      } catch(e) {}
+    })();
+  </script>
 
   <section class="section">
     <div class="sec-header"><span class="sec-eyebrow">Tech stack</span><div class="sec-rule"></div></div>
@@ -447,47 +674,12 @@
       <div>
         <div class="stack-group-label">Infrastructure</div>
         <div class="tags">
-          <span class="tag">SQLite</span><span class="tag">Kite API</span><span class="tag">Dhan API</span><span class="tag">MCP</span><span class="tag">Claude API</span><span class="tag">Telegram Bot</span>
+          <span class="tag">SQLite</span><span class="tag">Broker APIs</span><span class="tag">LLM APIs</span><span class="tag">WebSockets</span><span class="tag">Telegram Bot</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="sec-header"><span class="sec-eyebrow">Featured projects</span><div class="sec-rule"></div></div>
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-name">EdgeQuant AMP</div>
-        <div class="project-desc">7-agent agentic trading desk: Conductor, Risk Manager, Execution, Attribution, and Learning agents. Claude analyses; human presses SEND.</div>
-        <div class="project-tags"><span class="pt">Python</span><span class="pt">Claude API</span><span class="pt">MCP</span></div>
-      </div>
-      <div class="project-card">
-        <div class="project-name">EQ Market Profile Studio</div>
-        <div class="project-desc">TypeScript Turborepo desktop with 11 MCP tools. Live TPO profiles, Value Area, IB ladders across Kite, Dhan, and Fyers.</div>
-        <div class="project-tags"><span class="pt">TypeScript</span><span class="pt">Electron</span><span class="pt">MCP</span></div>
-      </div>
-      <div class="project-card">
-        <div class="project-name">EQ ML Algo 1.0</div>
-        <div class="project-desc">SVM champion on Market Profile features. Profile proposes; SVM decides; MEA executes. Model store shared across both trading accounts.</div>
-        <div class="project-tags"><span class="pt">Python</span><span class="pt">scikit-learn</span><span class="pt">Flask</span></div>
-      </div>
-      <div class="project-card">
-        <div class="project-name">EQ Quantum Qubits</div>
-        <div class="project-desc">TPO histogram as |ψ|². Derives price levels from first principles using quantum well formalism — zero free parameters.</div>
-        <div class="project-tags"><span class="pt">Python</span><span class="pt">Quantum Mech</span><span class="pt">NSE</span></div>
-      </div>
-      <div class="project-card">
-        <div class="project-name">Nanotokens</div>
-        <div class="project-desc">LLM API spend tracker with cache-hit rates, cost forecasting, and platform comparisons. Built with Next.js 15 and Supabase.</div>
-        <div class="project-tags"><span class="pt">Next.js</span><span class="pt">TypeScript</span><span class="pt">Supabase</span></div>
-      </div>
-      <div class="project-card">
-        <div class="project-name">Grocery Aggregator</div>
-        <div class="project-desc">Android accessibility app that fills Blinkit and Instamart carts simultaneously and orders the cheaper basket behind fingerprint auth.</div>
-        <div class="project-tags"><span class="pt">Java</span><span class="pt">Android</span><span class="pt">A11y API</span></div>
-      </div>
-    </div>
-  </section>
 
   <section class="section">
     <div class="sec-header"><span class="sec-eyebrow">Career</span><div class="sec-rule"></div></div>
@@ -606,7 +798,7 @@
 
   <footer class="footer">
     <span class="footer-note">narasimham.vemuganti@gmail.com</span>
-    <span class="footer-note">github.com/nvemuganti-sudo</span>
+    <span class="footer-note">nvemuganti.github.io</span>
     <span class="footer-note">Visakhapatnam · India · 2026</span>
   </footer>
 
